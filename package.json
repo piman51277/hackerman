@@ -1,0 +1,9 @@
+{
+  "name": "hackerman",
+  "version": "1.0.0",
+  "description": "A tool to scare your neighbors, your parents, or your local Karen",
+  "bin": "./src/index.js",
+  "keywords": [],
+  "author": "piman51277",
+  "license": "ISC"
+}
