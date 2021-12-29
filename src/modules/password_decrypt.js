@@ -12,19 +12,19 @@ async function password_decrypt() {
   await wait(1000);
 
   for (let k = 0; k < password_count; k++) {
-    const password = crypto.randomBytes(32).toString("hex");
+    const password = crypto.randomBytes(64).toString("hex");
     process.stdout.write(`\x1b[31m[`);
 
     for (let i = 0; i < password.length; i++) {
       //how many times to "guess"
-      const guessCount = Math.floor(Math.random() * 4) + 1;
+      const guessCount = Math.floor(Math.random() * 6) + 1;
       for (let j = 0; j < guessCount; j++) {
         //reset cursor
         process.stdout.cursorTo(i + 1);
 
         //generate filler
         const filler = crypto
-          .randomBytes(32)
+          .randomBytes(64)
           .toString("hex")
           .slice(i + 1);
         process.stdout.write(password[i] + filler + "]");
