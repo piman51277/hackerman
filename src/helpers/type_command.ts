@@ -1,6 +1,6 @@
-const wait = require("./wait");
+import { wait } from "./wait";
 
-async function type_command(command) {
+export async function type_command(command: string) {
   process.stdout.write("\x1b[0m");
 
   //wait 1 second before typing
@@ -15,5 +15,3 @@ async function type_command(command) {
   //wait random amount of time before typing next command
   await wait(Math.floor(Math.random() * 1000) + 1000);
 }
-
-module.exports = type_command;

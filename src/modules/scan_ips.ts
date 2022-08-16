@@ -1,12 +1,12 @@
-const generate_ip = require("../helpers/generate_ip");
-const type_command = require("../helpers/type_command");
-const wait = require("../helpers/wait");
+import { generate_ip } from "../helpers/generate_ip";
+import { type_command } from "../helpers/type_command";
+import { wait } from "../helpers/wait";
 
 const protocols = ["FTP", "TCP", "UDP", "NTP", "SSH", "MAC"];
 const randomProtocol = () =>
   protocols[Math.floor(Math.random() * protocols.length)];
 
-async function scan_ips() {
+export async function scan_ips() {
   process.stdout.write("\x1b[0m$: ");
   await type_command("nmap -iR -v -T4 -Pn -p- -oA");
 
@@ -23,5 +23,3 @@ async function scan_ips() {
     await wait(Math.floor(Math.random() * 100));
   }
 }
-
-module.exports = scan_ips;

@@ -1,8 +1,8 @@
-const type_command = require("../helpers/type_command");
-const wait = require("../helpers/wait");
-const crypto = require("crypto");
+import { type_command } from "../helpers/type_command";
+import { wait } from "../helpers/wait";
+import * as crypto from "crypto";
 
-async function password_decrypt() {
+export async function password_decrypt() {
   process.stdout.write("\x1b[0m$: ");
   await type_command("decrypt0r -p pwrd.txt -o pwrd.txt.decrypted");
 
@@ -37,5 +37,3 @@ async function password_decrypt() {
     process.stdout.write(`\x1b[32m[${password}] DONE\n\x1b[0m`);
   }
 }
-
-module.exports = password_decrypt;

@@ -1,8 +1,8 @@
-const generate_ip = require("../helpers/generate_ip");
-const type_command = require("../helpers/type_command");
-const wait = require("../helpers/wait");
+import { generate_ip } from "../helpers/generate_ip";
+import { type_command } from "../helpers/type_command";
+import { wait } from "../helpers/wait";
 
-async function send_virus() {
+export async function send_virus() {
   process.stdout.write("\x1b[0m$: ");
   await type_command("scp -r virus.exe root@" + generate_ip() + ":/tmp/");
 
@@ -45,5 +45,3 @@ async function send_virus() {
   //move cursor back
   process.stdout.moveCursor(0, rows);
 }
-
-module.exports = send_virus;

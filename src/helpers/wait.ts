@@ -1,5 +1,3 @@
-async function wait(ms) {
+export async function wait(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
-
-module.exports = wait;
