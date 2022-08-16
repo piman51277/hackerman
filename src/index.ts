@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import { wait } from "./helpers/wait";
+import { matrixScreen } from "./modules/matrix";
 import { password_decrypt } from "./modules/password_decrypt";
 import { scan_ips } from "./modules/scan_ips";
 import { send_virus } from "./modules/send_virus";
@@ -10,13 +11,14 @@ console.clear();
 const modules = {
   password_decrypt,
   scan_ips,
-  send_virus
+  send_virus,
+  matrixScreen
 };
 
 const playlist = [
   modules.scan_ips,
   modules.send_virus,
-  modules.password_decrypt,
+  modules.matrixScreen,
 ];
 
 async function main() {
